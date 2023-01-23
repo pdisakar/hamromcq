@@ -1,18 +1,19 @@
 import React from 'react';
 export default function Navbar() {
   return (
-      <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5  dark:bg-gray-900">
+    <div>
+      <nav class="bg-white border-blue-200 px-2 sm:px-4 py-2.5 dark:bg-blue-900">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
           <a
-            href="https://flowbite.com/"
+            href="#"
             class="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              src="favicon.ico"
               class="h-6 mr-3 sm:h-9"
               alt="Flowbite Logo"
             />
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Flowbite
+              Hamro MCQ
             </span>
           </a>
           <div class="flex md:order-2">
@@ -24,7 +25,7 @@ export default function Navbar() {
             <button
               data-collapse-toggle="navbar-cta"
               type="button"
-              class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              class="inline-flex items-center p-2 text-sm text-blue-500 rounded-lg md:hidden hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:text-white dark:hover:bg-blue-700 dark:focus:ring-blue-600"
               aria-controls="navbar-cta"
               aria-expanded="false">
               <span class="sr-only">Open main menu</span>
@@ -44,33 +45,33 @@ export default function Navbar() {
           <div
             class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-cta">
-            <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul class="flex flex-col p-4 mt-4 border border-blue-100 rounded-lg bg-blue-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-blue-800 md:dark:bg-blue-900 dark:border-blue-700">
               <li>
                 <a
                   href="#"
-                  class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                  class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white"
                   aria-current="page">
-                  Home
+                  Question Bank
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                  About
+                  class="block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-100 md:hover:bg-transparent md:hover:text-black md:p-0 md:dark:hover:text-white dark:text-white dark:hover:bg-blue-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-blue-700">
+                  Exams
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                  Services
+                  class="block py-2 pl-3 pr-4 text-white rounded hover:bg-blue-100 md:hover:bg-transparent md:hover:text-black md:p-0 md:dark:hover:text-white dark:text-white dark:hover:bg-blue-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-blue-700">
+                  Halls
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                  class="block py-2 pl-3 pr-4 text-black rounded hover:bg-blue-100 md:hover:bg-transparent md:hover:black md:p-0 md:dark:hover:text-white dark:text-white dark:hover:bg-blue-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-blue-700">
                   Contact
                 </a>
               </li>
@@ -78,5 +79,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+    </div>
   );
 }
