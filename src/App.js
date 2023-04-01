@@ -1,11 +1,13 @@
 import './App.css';
 import Navbar from './components/Navbar';
+import RegisterPage from './components/authentication/RegisterPage';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import QuestionBankPage from './pages/QuestionBankPage';
 import HallPage from './pages/HallPage';
 import ExamPage from './pages/ExamPage';
 import ContactUsPage from './pages/ContactUsPage';
+import LoginPage from './components/authentication/LoginPage';
 
 function App() {
   return (
@@ -37,6 +39,16 @@ function App() {
             exact
             path="/contact-us"
             element={<ContactUsPage />}
+          />
+          <Route
+            exact
+            path="/get-start"
+            element={<LoginPage />}
+          />
+          <Route
+            exact
+            path="/register-page"
+            element={<RegisterPage />}
           />
         </Routes>
       </div>
