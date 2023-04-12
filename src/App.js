@@ -1,13 +1,14 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar/Navbar';
 import RegisterPage from './components/authentication/RegisterPage';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import QuestionBankPage from './pages/QuestionBankPage';
-import HallPage from './pages/HallPage';
-import ExamPage from './pages/ExamPage';
-import ContactUsPage from './pages/ContactUsPage';
+import HomePage from './components/pages/HomePage';
+import QuestionBankPage from './components/pages/QuestionBankPage';
+import HallPage from './components/pages/HallPage';
+import ExamPage from './components/pages/ExamPage';
+import ContactUsPage from './components/pages/ContactUsPage';
 import LoginPage from './components/authentication/LoginPage';
+import TermsAndCondition from './components/pages/TermsAndCondition';
 
 function App() {
   return (
@@ -49,6 +50,12 @@ function App() {
             exact
             path="/register-page"
             element={<RegisterPage />}
+          />
+
+          <Route
+            exact
+            path="/terms-and-conditions"
+            element={<TermsAndCondition />}
           />
         </Routes>
       </div>
