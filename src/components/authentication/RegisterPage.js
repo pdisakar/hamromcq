@@ -9,7 +9,7 @@ export default function RegisterPage() {
   const { createUser } = UserAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = async e => {
+  const handleSubmitRegister = async e => {
     e.preventDefault();
     setError('');
     try {
@@ -42,7 +42,7 @@ export default function RegisterPage() {
               </h1>
 
               <form
-                onSubmit={handleSubmit}
+                onSubmit={handleSubmitRegister}
                 className="space-y-4 md:space-y-6"
                 action="#">
                 {/* <div>

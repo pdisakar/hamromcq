@@ -11,6 +11,7 @@ import LoginPage from './components/authentication/LoginPage';
 import TermsAndCondition from './components/pages/TermsAndCondition';
 import { AuthContextProvider } from './context/AuthContext';
 import IndexPage from './components/indexpages/IndexPage';
+import ProtectedRoute from './context/ProtectedRoute';
 
 function App() {
   return (
@@ -60,12 +61,14 @@ function App() {
               path="/terms-and-conditions"
               element={<TermsAndCondition />}
             />
-          </Routes>
-          <Routes>
+
             <Route
-              exact
               path="/get-index"
-              element={<IndexPage />}
+              element={
+                <ProtectedRoute>
+                  <IndexPage />
+                </ProtectedRoute>
+              }
             />
           </Routes>
         </div>
