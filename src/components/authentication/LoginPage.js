@@ -8,17 +8,31 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { signIn } = UserAuth();
+  const [errorMsg, setErrorMSG] = useState('');
 
   const handleSubmitLogout = async e => {
     e.preventDefault();
     setError('');
-    try {
-      await signIn(email, password);
-      console.log("You're logged in");
-      navigate('/get-index');
-    } catch (e) {
-      setError(e.message);
-      console.log(e.message);
+    if (password.length <= 0 || email.length <= 0) {
+      //console.log('not valid');
+      setErrorMSG('Please fill the required fields');
+      return;
+    } else {
+      try {
+        await signIn(email, password);
+        console.log("You're logged in");
+        navigate('/get-index');
+      } catch (e) {
+        if (e.code === 'auth/user-not-found') {
+          setErrorMSG('User account not found');
+        }
+        else if (e.code === 'auth/wrong-password') {
+          setErrorMSG('Wrong password try again');
+        } else {
+          setError(e.message);
+          console.log(e.message);
+        }
+      }
     }
   };
 
@@ -101,6 +115,11 @@ export default function LoginPage() {
                   Forgot password?
                 </Link>
               </div>
+
+              <p className="text-gray-100 text-base font-medium text-primary-600 text-center">
+                {errorMsg}
+              </p>
+
               <button
                 type="submit"
                 className="w-full hover:bg-primary-700 ring-2 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 hover:bg-primary-700 focus:ring-primary-800 text-white">

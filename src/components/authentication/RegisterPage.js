@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../context/AuthContext';
 
@@ -8,16 +8,39 @@ export default function RegisterPage() {
   const [error, setError] = useState('');
   const { createUser } = UserAuth();
   const navigate = useNavigate();
+  const [errorMsg, setErrorMSG] = useState('');
 
   const handleSubmitRegister = async e => {
     e.preventDefault();
     setError('');
-    try {
-      await createUser(email, password);
-      navigate('/get-index');
-    } catch (e) {
-      setError(e.message);
-      console.log(e.message);
+    console.log();
+
+    const checkbox = document.getElementById('terms');
+
+    if (password.length <= 0 || email.length <= 0) {
+      //console.log('not valid');
+      setErrorMSG('Please fill the required fields');
+      return;
+    } else if (password.length < 6) {
+      setErrorMSG('Password must be at least 6 characters');
+      return;
+    } else if (checkbox.checked == false) {
+      setErrorMSG('Agree to Terms and Conditions');
+      //  console.log('hello');
+      return;
+    } else {
+      try {
+        await createUser(email, password);
+        navigate('/get-index');
+      } catch (e) {
+        if (e.code === 'auth/email-already-in-use') {
+          // Email already registered, show error message to user
+          setErrorMSG('Email already in use');
+        } else {
+          setError(e.message);
+          console.log(e.message);
+        }
+      }
     }
   };
 
@@ -106,16 +129,20 @@ export default function RegisterPage() {
                   <div className="ml-3 text-sm">
                     <label
                       htmlFor="terms"
-                      className="font-light text-gray-500 dark:text-gray-300">
+                      className="font-light text-gray-300">
                       I accept the{' '}
                       <Link
                         to="/terms-and-conditions"
-                        className="font-medium text-primary-600 hover:underline dark:text-primary-500">
+                        className="font-medium text-primary-600 hover:underline text-primary-500">
                         Terms and Conditions
                       </Link>
                     </label>
                   </div>
                 </div>
+
+                <p className="text-gray-100 text-base font-medium text-primary-600 dtext-primary-500 text-center">
+                  {errorMsg}
+                </p>
                 <button className="w-full text-white bg-primary-600 hover:bg-primary-700 ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                   Create an account
                 </button>

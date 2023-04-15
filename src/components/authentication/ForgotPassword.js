@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../context/AuthContext';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const { resetPassword } = UserAuth();
-
+  const navigate = useNavigate();
   const handleForgotPassword = async e => {
     e.preventDefault();
     setError('');
     try {
       await resetPassword(email);
       console.log('changing');
+      navigate('/get-start');
     } catch (e) {
       setError(e.message);
       console.log(e.message);
